@@ -40,10 +40,10 @@ public class Game {
         //b.printBoard();
         FrameGame frameGame = new FrameGame();
         LabelStart labelStart = new LabelStart();
-        ToolBar toolBar = new ToolBar();
+        ToolBar bar = new ToolBar();
 
-        toolBar.initialiseToolBar();
-        labelStart.initialiseGarde();
+        bar.initialiseToolBar();
+        labelStart.initialiseGarde(frameGame,bar);
         frameGame.getFrame().add(labelStart.getGarde());
         frameGame.displayFrameGame();
 

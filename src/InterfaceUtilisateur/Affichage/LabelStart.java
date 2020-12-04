@@ -23,21 +23,19 @@ public class LabelStart{
 
     //Nouvelles instances de classes
     TraitementIcon tIcon = new TraitementIcon();
-    FrameGame frameGame = new FrameGame();
-    ToolBar bar = new ToolBar();
 
     //Méthodes
-    public void initialiseGarde(){
+    public void initialiseGarde(FrameGame frameGame,ToolBar bar){
         setGarde(new JLabel(tIcon.changeSize("image/garde_4x.png", 600, 600)));
 
         garde.setLayout(new GridBagLayout());
 
-        initialiseButtonStart();
+        initialiseButtonStart(frameGame, bar);
 
         garde.add(start, new GridBagConstraints());
     }
 
-    public void initialiseButtonStart(){
+    public void initialiseButtonStart(FrameGame frameGame,ToolBar bar){
         setStart(new JButton("Start Game"));
         start.setPreferredSize(new Dimension(550, 100));
         start.setFont(start.getFont().deriveFont(100f));

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class FrameGame{
     //Attributs
-    private JFrame frame = new JFrame();
+    private JFrame frame = new JFrame("Mr. Jack Pocket");
 
     //Getters and Setters
     public JFrame getFrame() { return frame; }
