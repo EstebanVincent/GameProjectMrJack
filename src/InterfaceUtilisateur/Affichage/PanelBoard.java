@@ -31,32 +31,11 @@ public class PanelBoard{
     //Nouvelle instance de classe
     District district = new District();
     TraitementIcon tIcon = new TraitementIcon();
-    JFrame frame = new JFrame("Mr. Jack Pocket");
+    //JFrame frame = new JFrame("Mr. Jack Pocket");
 
 
     //Méthodes
-    public void createPanelBoard(){
-        panelBoard.setLayout(new GridLayout(5, 5));
-        panelBoard.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        for (int i = 0; i < labelArrayBoard.length; i++) {
-            for (int j = 0; j < labelArrayBoard[0].length; j++) {
-                panelBoard.add(labelArrayBoard[i][j]);
-                panelBoard.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-            }
-        }
-    }
-
-    public void printBoard(){
-        createPanelBoard();
-
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.add(panelBoard);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-    }
-
-    public void setupBoard(){
+    public void initialisePanelBoard(){
         district.setUp();
 
         //les cases exterieurs sont vides
@@ -110,19 +89,32 @@ public class PanelBoard{
         board[1][1].setOrientation(1);
         board[1][3].setOrientation(3);
         board[3][2].setOrientation(0);
+
+        setUpPanelBoard();
     }
-    /*
+
     public void setUpPanelBoard(){
-        JPanel plateau = new JPanel();
-        plateau.setLayout(new GridLayout(5,5));
-        plateau.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        for (int i = 0; i < board.length; i++){
-            for (int j = 0; j < board[0].length; j++){
-                plateau.add(board[i][j]);
-                plateau.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
+        panelBoard.setLayout(new GridLayout(5,5));
+        panelBoard.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        for (int i = 0; i < labelArrayBoard.length; i++){
+            for (int j = 0; j < labelArrayBoard[0].length; j++){
+                panelBoard.add(labelArrayBoard[i][j]);
+                panelBoard.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
             }
         }
     }
+/*
+    public void printBoard(){ //fonction pour test
+        setUpPanelBoard();
 
-     */
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.add(panelBoard);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+    }
+
+ */
+
+
 }

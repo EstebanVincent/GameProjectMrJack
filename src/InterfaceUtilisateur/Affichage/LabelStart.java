@@ -25,17 +25,17 @@ public class LabelStart{
     TraitementIcon tIcon = new TraitementIcon();
 
     //Méthodes
-    public void initialiseGarde(FrameGame frameGame,ToolBar bar){
+    public void initialiseGarde(FrameGame frameGame,ToolBar bar, PanelBoard panelBoard, PanelActions panelActions){
         setGarde(new JLabel(tIcon.changeSize("image/garde_4x.png", 600, 600)));
 
         garde.setLayout(new GridBagLayout());
 
-        initialiseButtonStart(frameGame, bar);
+        initialiseButtonStart(frameGame, bar, panelBoard, panelActions);
 
         garde.add(start, new GridBagConstraints());
     }
 
-    public void initialiseButtonStart(FrameGame frameGame,ToolBar bar){
+    public void initialiseButtonStart(FrameGame frameGame,ToolBar bar, PanelBoard panelBoard, PanelActions panelActions){
         setStart(new JButton("Start Game"));
         start.setPreferredSize(new Dimension(550, 100));
         start.setFont(start.getFont().deriveFont(100f));
@@ -43,15 +43,15 @@ public class LabelStart{
 
         start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("fck u"); //fonctionne donc le probleme est dans qui est qui
                 frameGame.getFrame().remove(garde);
                 frameGame.getFrame().add(bar.getToolBar(), BorderLayout.NORTH);
-                //frameGame.getFrame().add(plateau, BorderLayout.CENTER);
-                //frameGame.getFrame().add(cartes, BorderLayout.EAST);
+                frameGame.getFrame().add(panelBoard.getPanelBoard(), BorderLayout.CENTER);
+                frameGame.getFrame().add(panelActions.getPanelActions(), BorderLayout.EAST);
                 //frameGame.getFrame().add(tourDeJeu,BorderLayout.WEST);
                 frameGame.updateFrame();
             }
         });
+
 
     }
 

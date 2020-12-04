@@ -1,9 +1,6 @@
 package InterfaceConsole;
 
-import InterfaceUtilisateur.Affichage.FrameGame;
-import InterfaceUtilisateur.Affichage.LabelStart;
-import InterfaceUtilisateur.Affichage.PanelBoard;
-import InterfaceUtilisateur.Affichage.ToolBar;
+import InterfaceUtilisateur.Affichage.*;
 import InterfaceUtilisateur.TraitementIcon;
 
 import java.awt.event.ActionEvent;
@@ -33,17 +30,23 @@ public class Game {
     PanelBoard b = new PanelBoard();
     TraitementIcon tIcon = new TraitementIcon();
 
-    public void play() {//les actions possible ne d'updatesPas probleme d'opp
+    public void play() {
         débutPartie();
         //b.setupBoard();
         //b.createPanelBoard();
         //b.printBoard();
         FrameGame frameGame = new FrameGame();
         LabelStart labelStart = new LabelStart();
-        ToolBar bar = new ToolBar();
+        ToolBar toolBar = new ToolBar();
+        PanelBoard panelBoard = new PanelBoard();
+        PanelActions panelActions = new PanelActions();
 
-        bar.initialiseToolBar();
-        labelStart.initialiseGarde(frameGame,bar);
+        toolBar.initialiseToolBar(frameGame);
+        panelBoard.initialisePanelBoard();
+        panelActions.initialisePanelActions();
+        labelStart.initialiseGarde(frameGame, toolBar, panelBoard, panelActions);
+
+
         frameGame.getFrame().add(labelStart.getGarde());
         frameGame.displayFrameGame();
 
@@ -253,7 +256,7 @@ public class Game {
     public void débutPartie() {
         //lance la game behind the scene, initialise le game, les joueurs, choisi Jack
 
-        b.setupBoard();
+        b.initialisePanelBoard();
 /*
         player.initialiseName();
         setCurrentPlayer(player.getPlayers()[0]); //enqueteur commence
