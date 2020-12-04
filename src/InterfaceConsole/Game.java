@@ -27,7 +27,6 @@ public class Game {
     Player player = new Player();
     Alibi alibi = new Alibi();
     Pioche pioche = new Pioche();
-    PanelBoard b = new PanelBoard();
     TraitementIcon tIcon = new TraitementIcon();
 
     public void play() {
@@ -49,6 +48,8 @@ public class Game {
 
         frameGame.getFrame().add(labelStart.getGarde());
         frameGame.displayFrameGame();
+
+        panelBoard.printBoard();
 
 
         //printBoard();
@@ -256,7 +257,7 @@ public class Game {
     public void débutPartie() {
         //lance la game behind the scene, initialise le game, les joueurs, choisi Jack
 
-        b.initialisePanelBoard();
+        //b.initialisePanelBoard();
 /*
         player.initialiseName();
         setCurrentPlayer(player.getPlayers()[0]); //enqueteur commence

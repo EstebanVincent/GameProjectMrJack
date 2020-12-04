@@ -1,6 +1,7 @@
 package InterfaceUtilisateur.Affichage;
 
 import InterfaceConsole.District;
+import InterfaceUtilisateur.RotatedIcon;
 import InterfaceUtilisateur.TraitementIcon;
 
 import javax.swing.*;
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class PanelBoard{
     //Attributs
@@ -98,9 +100,41 @@ public class PanelBoard{
         panelBoard.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         for (int i = 0; i < labelArrayBoard.length; i++){
             for (int j = 0; j < labelArrayBoard[0].length; j++){
-                panelBoard.add(labelArrayBoard[i][j]);
-                panelBoard.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
+                if (i == 1 && j == 1){
+                    RotatedIcon holmes = new RotatedIcon(labelArrayBoard[i][j].getIcon(), RotatedIcon.Rotate.DOWN);
+                    labelArrayBoard[i][j].setIcon(holmes);
+                    panelBoard.add(labelArrayBoard[i][j]);
+                } else if (i == 1 && j == 3) {
+                    RotatedIcon watson = new RotatedIcon(labelArrayBoard[i][j].getIcon(), RotatedIcon.Rotate.UP);
+                    labelArrayBoard[i][j].setIcon(watson);
+                    panelBoard.add(labelArrayBoard[i][j]);
+                } else {
+                    if (board[i][j].getOrientation() == 0){
+                        panelBoard.add(labelArrayBoard[i][j]);
+                        panelBoard.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
+                    } else if (board[i][j].getOrientation() == 1){
+                        RotatedIcon EAST = new RotatedIcon(labelArrayBoard[i][j].getIcon(), RotatedIcon.Rotate.DOWN);
+                        labelArrayBoard[i][j].setIcon(EAST);
+                        panelBoard.add(labelArrayBoard[i][j]);
+                    } else if (board[i][j].getOrientation() == 2){
+                        RotatedIcon SOUTH = new RotatedIcon(labelArrayBoard[i][j].getIcon(), RotatedIcon.Rotate.UPSIDE_DOWN);
+                        labelArrayBoard[i][j].setIcon(SOUTH);
+                        panelBoard.add(labelArrayBoard[i][j]);
+                    } else {
+                        RotatedIcon WEST = new RotatedIcon(labelArrayBoard[i][j].getIcon(), RotatedIcon.Rotate.UP);
+                        labelArrayBoard[i][j].setIcon(WEST);
+                        panelBoard.add(labelArrayBoard[i][j]);
+                    }
+                }
             }
+        }
+    }
+    public void printBoard(){// faire un truc graphique
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(board[i][j].getNom() + " " +board[i][j].getOrientation() + "\t");
+            }
+            System.out.println();
         }
     }
 /*

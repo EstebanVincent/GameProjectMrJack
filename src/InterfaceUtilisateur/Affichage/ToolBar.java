@@ -11,6 +11,8 @@ public class ToolBar{
     private JToolBar toolBar = new JToolBar();
 
     private JButton whoIsWho = new JButton("Choix des roles random");
+    //private JOptionPane JackIs =new JOptionPane();
+
     private JButton whoIsJack = new JButton("Qui est Mr. Jack ?");//Ce bouton initialise qui est Mr. Jack et le dis au joueur, et place la pile de alibi a droite dans cartes
 
     private JButton temoin = new JButton("Appel a témoin"); //Ce bouton demande au joueur si Mr. Jack est visible
@@ -54,9 +56,9 @@ public class ToolBar{
                 boolean choix = rd.nextBoolean();
                 //faire un popup et demander au joueur de choisir 1 ou 2
                 if (choix){
-                    System.out.println("The player who pushed this button is Mr. Jack");
+                    JOptionPane.showMessageDialog(frameGame.getFrame(),"The player who pushed this button is Mr. Jack");
                 } else {
-                    System.out.println("The player who pushed this button is Detective");
+                    JOptionPane.showMessageDialog(frameGame.getFrame(),"The player who pushed this button is Detective");
                 }
                 toolBar.remove(whoIsWho);
                 frameGame.updateFrame();

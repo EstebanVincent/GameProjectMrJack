@@ -92,9 +92,9 @@ public class District { //nom en foction du perso dessus
         District JL = new District("Joseph Lane",orienté[8],1,1, tIcon.changeSize("image/faceSus/Joseph_Lane.png",160,160)); // spécial si retournéé croix preciser dans suspect district
 
         //des district speciaux avec les inspecteurs dessus, regles diff
-        District Holmes = new District("Holmes",1,2,1,tIcon.changeSize("image/detective/holmes.png",160,160));
-        District Watson = new District("Watson",1,2,1,tIcon.changeSize("image/detective/watson.png",160,160));
-        District Toby = new District("Toby",1,2,1,tIcon.changeSize("image/detective/toby.png",160,160));
+        District Holmes = new District("Holmes",0,2,1,tIcon.changeSize("image/detective/holmes.png",160,160));
+        District Watson = new District("Watson",0,2,1,tIcon.changeSize("image/detective/watson.png",160,160));
+        District Toby = new District("Toby",0,2,1,tIcon.changeSize("image/detective/toby.png",160,160));
 
         //districtes juste case ou y'as rien
         District Vide = new District("Vide",1,0,1,tIcon.changeSize("image/void.png",160,160));
