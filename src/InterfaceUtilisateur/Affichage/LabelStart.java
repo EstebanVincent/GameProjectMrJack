@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LabelStart {
+public class LabelStart{
     //Attributs
     private JLabel garde;
     private JButton start;

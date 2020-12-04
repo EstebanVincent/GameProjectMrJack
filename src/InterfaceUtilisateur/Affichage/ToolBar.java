@@ -3,7 +3,7 @@ package InterfaceUtilisateur.Affichage;
 import javax.swing.*;
 import java.awt.*;
 
-public class ToolBar extends JToolBar{
+public class ToolBar{
     //Attributs
     private JToolBar toolBar = new JToolBar();
 

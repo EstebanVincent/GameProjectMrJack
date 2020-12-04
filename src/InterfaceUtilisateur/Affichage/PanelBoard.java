@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class PanelBoard extends JPanel{
+public class PanelBoard{
     //Attributs
     private District[][] board = new District[5][5];
     private JLabel[][] labelArrayBoard = new JLabel[5][5];

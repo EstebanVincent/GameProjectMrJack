@@ -3,7 +3,7 @@ package InterfaceUtilisateur.Affichage;
 import javax.swing.*;
 import java.awt.*;
 
-public class FrameGame extends JFrame {
+public class FrameGame{
     //Attributs
     private JFrame frame = new JFrame();
 
