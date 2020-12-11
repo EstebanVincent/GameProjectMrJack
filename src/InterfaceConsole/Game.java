@@ -27,10 +27,11 @@ public class Game {
     Player player = new Player();
     Alibi alibi = new Alibi();
     Pioche pioche = new Pioche();
+    Action action = new Action();
     TraitementIcon tIcon = new TraitementIcon();
 
     public void play() {
-        débutPartie();
+        //débutPartie();
         //b.setupBoard();
         //b.createPanelBoard();
         //b.printBoard();
@@ -38,18 +39,16 @@ public class Game {
         LabelStart labelStart = new LabelStart();
         ToolBar toolBar = new ToolBar();
         PanelBoard panelBoard = new PanelBoard();
-        PanelActions panelActions = new PanelActions();
+        action.initialiseJetons();
+        PanelActions panelActions = new PanelActions(action.getJetons());
 
-        toolBar.initialiseToolBar(frameGame);
-        panelBoard.initialisePanelBoard();
-        panelActions.initialisePanelActions();
-        labelStart.initialiseGarde(frameGame, toolBar, panelBoard, panelActions);
+
+        initialise(frameGame, toolBar, panelBoard, panelActions, labelStart);
 
 
         frameGame.getFrame().add(labelStart.getGarde());
         frameGame.displayFrameGame();
-
-        panelBoard.printBoard();
+        panelBoard.printBoard(); //juste pour vérif
 
 
         //printBoard();
@@ -151,6 +150,12 @@ public class Game {
 
     JFrame frame = new JFrame("Mr Jack Pocket");
 
+    public void initialise(FrameGame frameGame,ToolBar toolBar, PanelBoard panelBoard, PanelActions panelActions, LabelStart labelStart){
+        toolBar.initialiseToolBar(frameGame);
+        panelBoard.initialisePanelBoard();
+        panelActions.initialisePanelActions(frameGame, panelBoard);
+        labelStart.initialiseGarde(frameGame, toolBar, panelBoard, panelActions);
+    }
     /*
     public void printBoardGraph() {
 
@@ -274,13 +279,15 @@ public class Game {
 
     }
 
-    public void switchPlayer() {
-        if (currentPlayer == player.getPlayers()[1]) {
+    public void switchPlayer(PanelActions panelActions, FrameGame frameGame) {
+        if (currentPlayer == player.getPlayers()[1]) {//detective
             setCurrentPlayer(player.getPlayers()[0]);
-        } else {
+            panelActions.changePlayerD2J();
+        } else { //jack
             setCurrentPlayer(player.getPlayers()[1]);
+            panelActions.changePlayerJ2D();
         }
-        System.out.println("Au tour de " + currentPlayer.getName());
+        frameGame.updateFrame();
     }
     /*
 

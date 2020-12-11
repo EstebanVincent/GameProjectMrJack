@@ -33,8 +33,6 @@ public class PanelBoard{
     //Nouvelle instance de classe
     District district = new District();
     TraitementIcon tIcon = new TraitementIcon();
-    //JFrame frame = new JFrame("Mr. Jack Pocket");
-
 
     //Méthodes
     public void initialisePanelBoard(){
@@ -136,6 +134,18 @@ public class PanelBoard{
             }
             System.out.println();
         }
+    }
+    public int[] findPosition(District district) {
+        int[] defaut = {0, 0};
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if (board[i][j].getNom() == district.getNom()) {
+                    int[] a = {i, j};
+                    return a;
+                }
+            }
+        }
+        return defaut;
     }
 /*
     public void printBoard(){ //fonction pour test

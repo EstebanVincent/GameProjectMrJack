@@ -11,7 +11,6 @@ public class District { //nom en foction du perso dessus
     //Attributs
     private String nom;
     private int faceVisible; //1 face suspect 0 face vide
-    private int typeDistrict; //0 case vide, 1 case suspect, 2 case detective
     private int orientation; //N = 0, E = 1, S = 2, Ouest = 3, c'est le bout du T dans cette direction
 
     private ImageIcon faceSus;
@@ -22,11 +21,16 @@ public class District { //nom en foction du perso dessus
     //Constructeurs
     public District(){ }
 
-    public District(String nom, int orientation, int typeDistrict, int faceVisible, ImageIcon faceSus) {
+    public District(String nom, int orientation, int faceVisible, ImageIcon faceSus, ImageIcon faceVide) {
         this.setNom(nom);
         this.setOrientation(orientation);
-        this.setTypeDistrict(typeDistrict);
         this.setFaceVisible(faceVisible);
+        this.setFaceSus(faceSus);
+        this.setFaceVide(faceVide);
+    }
+
+    public District(String nom, ImageIcon faceSus) {
+        this.setNom(nom);
         this.setFaceSus(faceSus);
     }
 
@@ -35,14 +39,6 @@ public class District { //nom en foction du perso dessus
     public String getNom() { return nom; }
 
     public void setNom(String nom) { this.nom = nom; }
-
-    public int getTypeDistrict() {
-        return typeDistrict;
-    }
-
-    public void setTypeDistrict(int typeDistrict) {
-        this.typeDistrict = typeDistrict;
-    }
 
     public int getFaceVisible() {
         return faceVisible;
@@ -68,6 +64,10 @@ public class District { //nom en foction du perso dessus
         this.faceSus = faceSus;
     }
 
+    public ImageIcon getFaceVide() { return faceVide; }
+
+    public void setFaceVide(ImageIcon faceVide) { this.faceVide = faceVide; }
+
     public District[][] getBaseDeDonnee() { return baseDeDonnee; }
 
     public void setBaseDeDonnee(District[][] baseDeDonnee) { this.baseDeDonnee = baseDeDonnee; }
@@ -81,23 +81,23 @@ public class District { //nom en foction du perso dessus
     public void setUp(){
         int[] orienté = randomIntArray(9,0,3);
 
-        District Mme = new District("Madame",orienté[0],1,1,tIcon.changeSize("image/faceSus/Madame.png",160,160));
-        District SGT = new District("SGT Goodley",orienté[1],1,1, tIcon.changeSize("image/faceSus/Sgt._Goodley.png",160,160));
-        District JB = new District("Jeremy Bert",orienté[2],1,1, tIcon.changeSize("image/faceSus/Jeremy_Bert.png",160,160));
-        District WG = new District("William Gull",orienté[3],1,1, tIcon.changeSize("image/faceSus/William_Gull.png",160,160));
-        District Ms = new District("Miss Stealthy",orienté[4],1,1, tIcon.changeSize("image/faceSus/Miss_Stealthy.png",160,160));
-        District Gs = new District("John Smith",orienté[5],1,1, tIcon.changeSize("image/faceSus/John_Smith.png",160,160));
-        District Insp = new District("Insp. Lestrade",orienté[6],1,1, tIcon.changeSize("image/faceSus/Insp._Lestrade.png",160,160));
-        District JP = new District("John Pizer",orienté[7],1,1, tIcon.changeSize("image/faceSus/John_Pizer.png",160,160));
-        District JL = new District("Joseph Lane",orienté[8],1,1, tIcon.changeSize("image/faceSus/Joseph_Lane.png",160,160)); // spécial si retournéé croix preciser dans suspect district
+        District Mme = new District("Madame",orienté[0],1,tIcon.changeSize("image/districts/faceSus/Madame.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District SGT = new District("SGT Goodley",orienté[1],1, tIcon.changeSize("image/districts/faceSus/Sgt._Goodley.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District JB = new District("Jeremy Bert",orienté[2],1, tIcon.changeSize("image/districts/faceSus/Jeremy_Bert.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District WG = new District("William Gull",orienté[3],1, tIcon.changeSize("image/districts/faceSus/William_Gull.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District Ms = new District("Miss Stealthy",orienté[4],1, tIcon.changeSize("image/districts/faceSus/Miss_Stealthy.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District Gs = new District("John Smith",orienté[5],1, tIcon.changeSize("image/districts/faceSus/John_Smith.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District Insp = new District("Insp. Lestrade",orienté[6],1, tIcon.changeSize("image/districts/faceSus/Insp._Lestrade.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District JP = new District("John Pizer",orienté[7],1, tIcon.changeSize("image/districts/faceSus/John_Pizer.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District JL = new District("Joseph Lane",orienté[8],1, tIcon.changeSize("image/districts/faceSus/Joseph_Lane.png",160,160),tIcon.changeSize("image/districts/faceVide/Joseph_Lane.png",160,160)); // spécial si retournéé croix preciser dans suspect district
 
         //des district speciaux avec les inspecteurs dessus, regles diff
-        District Holmes = new District("Holmes",0,2,1,tIcon.changeSize("image/detective/holmes.png",160,160));
-        District Watson = new District("Watson",0,2,1,tIcon.changeSize("image/detective/watson.png",160,160));
-        District Toby = new District("Toby",0,2,1,tIcon.changeSize("image/detective/toby.png",160,160));
+        District Holmes = new District("Holmes",tIcon.changeSize("image/detectives/Holmes.png",160,160));
+        District Watson = new District("Watson",tIcon.changeSize("image/detectives/Watson.png",160,160));
+        District Toby = new District("Toby",tIcon.changeSize("image/detectives/Toby.png",160,160));
 
         //districtes juste case ou y'as rien
-        District Vide = new District("Vide",1,0,1,tIcon.changeSize("image/void.png",160,160));
+        District Vide = new District("Vide",tIcon.changeSize("image/void.png",160,160));
 
         District[][] bdd = setUpBDD(new District[]{Mme, SGT, JB, WG, Ms, Gs, Insp, JP, JL}, new District[]{Holmes, Watson, Toby}, Vide);
 

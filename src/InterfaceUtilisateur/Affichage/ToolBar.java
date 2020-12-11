@@ -1,5 +1,8 @@
 package InterfaceUtilisateur.Affichage;
 
+import InterfaceConsole.Alibi;
+import InterfaceConsole.Pioche;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -69,8 +72,10 @@ public class ToolBar{
         whoIsJack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Alibi name = alibi.choixJack();
-                System.out.println("fuck u");
+                Pioche pioche = new Pioche();
+                pioche.initialisePioche();
+                Alibi Jack = pioche.draw1Carte();
+                System.out.println(Jack.getName());
                 //toolBar.remove(oneUse);
                 toolBar.remove(whoIsJack);
                 frameGame.updateFrame();

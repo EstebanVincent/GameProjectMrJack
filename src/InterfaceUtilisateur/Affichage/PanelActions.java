@@ -1,40 +1,141 @@
 package InterfaceUtilisateur.Affichage;
 
+import InterfaceUtilisateur.TraitementIcon;
+import InterfaceConsole.Action;
+import com.sun.deploy.net.proxy.pac.PACFunctions;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-public class PanelActions {
+public class PanelActions extends Action{
+
+    public PanelActions(Action[] jetons){
+        super(jetons);
+    }
+    //Nouvelles instances de classes
+    TraitementIcon tIcon = new TraitementIcon();
+    Random rd = new Random();
+    //Action action = new Action();
+
     //Attributs
+    private List<Integer> actionsRd = new ArrayList<Integer>();
     private JPanel panelActions = new JPanel();
-    private JPanel quatreActions = new JPanel();
 
-    private JButton draw = new JButton(new ImageIcon("image/piocheAlibi.png"));
+    private JButton action1recto = new JButton(getJetons()[0].getImgRecto());
+    private JButton action1verso = new JButton(getJetons()[0].getImgVerso());
 
-    private JButton action1 = new JButton("action1");
-    private JButton action2 = new JButton("action2");
-    private JButton action3 = new JButton("action3");
-    private JButton action4 = new JButton("action4");
+    private JButton action2recto = new JButton(getJetons()[1].getImgRecto());
+    private JButton action2verso = new JButton(getJetons()[1].getImgVerso());
+
+    private JButton action3recto = new JButton(getJetons()[2].getImgRecto());
+    private JButton action3verso = new JButton(getJetons()[2].getImgVerso());
+
+    private JButton action4recto = new JButton(getJetons()[3].getImgRecto());
+    private JButton action4verso = new JButton(getJetons()[3].getImgVerso());
+
+    private final JButton[][] actions = new JButton[][]{{action1recto, action1verso}, {action2recto, action2verso}, {action3recto, action3verso}, {action4recto, action4verso}};
+
+    private JLabel turnJ = new JLabel(" Turn of Mr. Jack");
+    private JLabel turnD = new JLabel(" Turn of Detective");
 
     //Getters and Setters
-
-
     public JPanel getPanelActions() { return panelActions; }
 
     public void setPanelActions(JPanel panelActions) { this.panelActions = panelActions; }
 
-    public JPanel getQuatreActions() { return quatreActions; }
-
-    public void setQuatreActions(JPanel quatreActions) { this.quatreActions = quatreActions; }
-
     //Méthodes
-    public void initialisePanelActions(){
-        panelActions.setLayout(new GridLayout(2,1));
-        panelActions.add(draw);
+    public void initialisePanelActions(FrameGame frameGame, PanelBoard panelBoard){
+        turnJ.setFont(new Font("Serif", Font.PLAIN, 25));
+        turnD.setFont(new Font("Serif", Font.PLAIN, 25));
+        panelActions.setLayout(new GridLayout(5,1));
+        panelActions.add(turnD);
 
-        quatreActions.setLayout(new GridLayout(4,1));
-        quatreActions.add(action1);    quatreActions.add(action2);
-        quatreActions.add(action3);    quatreActions.add(action4);
+        for (int i = 0; i < 4; i++){
+            int rand = rd.nextInt(1 - 0 + 1);
+            actionsRd.add(rand);
+            panelActions.add(actions[i][rand]);
+        }
 
-        panelActions.add(quatreActions);
+        initialiseAction1Recto(frameGame);
+        initialiseAction3Recto(frameGame, panelBoard);
+    }
+    public void changePlayerD2J(){
+        panelActions.remove(turnD);
+        panelActions.add(turnJ,0);
+    }
+    public void changePlayerJ2D(){
+        panelActions.remove(turnJ);
+        panelActions.add(turnD,0);
+    }
+
+    public void initialiseAction1Recto(FrameGame frameGame){
+        action1recto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.updateFrame();
+            }
+        });
+    }
+    public void initialiseAction2Recto(FrameGame frameGame){
+        action2recto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.updateFrame();
+            }
+        });
+    }
+    public void initialiseAction3Recto(FrameGame frameGame, PanelBoard panelBoard){
+        action3recto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panelBoard.getPanelBoard().remove(5);
+                frameGame.updateFrame();
+            }
+        });
+    }
+    public void initialiseAction4Recto(FrameGame frameGame){
+        action4recto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.updateFrame();
+            }
+        });
+    }
+    public void initialiseAction1Verso(FrameGame frameGame){
+        action1verso.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.updateFrame();
+            }
+        });
+    }
+    public void initialiseAction2Verso(FrameGame frameGame){
+        action2verso.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.updateFrame();
+            }
+        });
+    }
+    public void initialiseAction3Verso(FrameGame frameGame){
+        action3verso.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.updateFrame();
+            }
+        });
+    }
+    public void initialiseAction4Verso(FrameGame frameGame){
+        action4verso.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.updateFrame();
+            }
+        });
     }
 }
