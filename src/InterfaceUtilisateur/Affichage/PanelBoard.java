@@ -147,18 +147,4 @@ public class PanelBoard{
         }
         return defaut;
     }
-/*
-    public void printBoard(){ //fonction pour test
-        setUpPanelBoard();
-
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.add(panelBoard);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-    }
-
- */
-
-
 }

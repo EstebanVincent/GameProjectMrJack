@@ -82,14 +82,14 @@ public class District { //nom en foction du perso dessus
         int[] orienté = randomIntArray(9,0,3);
 
         District Mme = new District("Madame",orienté[0],1,tIcon.changeSize("image/districts/faceSus/Madame.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District SGT = new District("SGT Goodley",orienté[1],1, tIcon.changeSize("image/districts/faceSus/Sgt._Goodley.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District JB = new District("Jeremy Bert",orienté[2],1, tIcon.changeSize("image/districts/faceSus/Jeremy_Bert.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District WG = new District("William Gull",orienté[3],1, tIcon.changeSize("image/districts/faceSus/William_Gull.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District Ms = new District("Miss Stealthy",orienté[4],1, tIcon.changeSize("image/districts/faceSus/Miss_Stealthy.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District Gs = new District("John Smith",orienté[5],1, tIcon.changeSize("image/districts/faceSus/John_Smith.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District Insp = new District("Insp. Lestrade",orienté[6],1, tIcon.changeSize("image/districts/faceSus/Insp._Lestrade.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District JP = new District("John Pizer",orienté[7],1, tIcon.changeSize("image/districts/faceSus/John_Pizer.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
-        District JL = new District("Joseph Lane",orienté[8],1, tIcon.changeSize("image/districts/faceSus/Joseph_Lane.png",160,160),tIcon.changeSize("image/districts/faceVide/Joseph_Lane.png",160,160)); // spécial si retournéé croix preciser dans suspect district
+        District SGT = new District("SGT_Goodley",orienté[1],1, tIcon.changeSize("image/districts/faceSus/Sgt._Goodley.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District JB = new District("Jeremy_Bert",orienté[2],1, tIcon.changeSize("image/districts/faceSus/Jeremy_Bert.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District WG = new District("William_Gull",orienté[3],1, tIcon.changeSize("image/districts/faceSus/William_Gull.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District Ms = new District("Miss_Stealthy",orienté[4],1, tIcon.changeSize("image/districts/faceSus/Miss_Stealthy.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District Gs = new District("John_Smith",orienté[5],1, tIcon.changeSize("image/districts/faceSus/John_Smith.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District Insp = new District("Insp._Lestrade",orienté[6],1, tIcon.changeSize("image/districts/faceSus/Insp._Lestrade.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District JP = new District("John_Pizer",orienté[7],1, tIcon.changeSize("image/districts/faceSus/John_Pizer.png",160,160),tIcon.changeSize("image/districts/faceVide/common.png",160,160));
+        District JL = new District("Joseph_Lane",orienté[8],1, tIcon.changeSize("image/districts/faceSus/Joseph_Lane.png",160,160),tIcon.changeSize("image/districts/faceVide/Joseph_Lane.png",160,160)); // spécial si retournéé croix preciser dans suspect district
 
         //des district speciaux avec les inspecteurs dessus, regles diff
         District Holmes = new District("Holmes",tIcon.changeSize("image/detectives/Holmes.png",160,160));

@@ -19,14 +19,14 @@ public class Pioche extends Alibi {
     public void initialisePioche(){ //crée la pioche
 
         Alibi Mme = new Alibi("Madame",2);
-        Alibi SGT = new Alibi("SGT Goodley",0);
-        Alibi JB = new Alibi("Jeremy Bert",1);
-        Alibi WG = new Alibi("William Gull",1);
-        Alibi Ms = new Alibi("Miss Stealthy",1);
-        Alibi JS = new Alibi("John Smith",1);
-        Alibi Insp = new Alibi("Insp. Lestrade",0);
-        Alibi JP = new Alibi("John Piser",1);
-        Alibi JL = new Alibi("Joseph Lane",1);
+        Alibi SGT = new Alibi("SGT_Goodley",0);
+        Alibi JB = new Alibi("Jeremy_Bert",1);
+        Alibi WG = new Alibi("William_Gull",1);
+        Alibi Ms = new Alibi("Miss_Stealthy",1);
+        Alibi JS = new Alibi("John_Smith",1);
+        Alibi Insp = new Alibi("Insp._Lestrade",0);
+        Alibi JP = new Alibi("John_Pizer",1);
+        Alibi JL = new Alibi("Joseph_Lane",1);
 
         //la pioche est diférente a chaque partie
         Alibi[] pioche1 = new Alibi[] {Mme, SGT, JB, WG, Ms, JS, Insp, JP, JL};

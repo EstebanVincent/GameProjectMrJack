@@ -2,6 +2,7 @@ package InterfaceUtilisateur.Affichage;
 
 import InterfaceConsole.Alibi;
 import InterfaceConsole.Pioche;
+import InterfaceUtilisateur.TraitementIcon;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ public class ToolBar{
     //Attributs
     private JToolBar toolBar = new JToolBar();
 
-    private JButton whoIsWho = new JButton("Choix des roles random");
+    private JButton whoIsWho = new JButton("Choix des roles");
     //private JOptionPane JackIs =new JOptionPane();
 
     private JButton whoIsJack = new JButton("Qui est Mr. Jack ?");//Ce bouton initialise qui est Mr. Jack et le dis au joueur, et place la pile de alibi a droite dans cartes
@@ -28,10 +29,10 @@ public class ToolBar{
     public void setToolBar(JToolBar toolBar) { this.toolBar = toolBar; }
 
     //Méthodes
-    public void initialiseToolBar(FrameGame frameGame){
+    public void initialiseToolBar(FrameGame frameGame, Pioche pioche){
         JLabel oneUse = new JLabel("Set up : ");
         initialiseWhoIsWho(frameGame);
-        initialiseWhoIsJack(frameGame);
+        initialiseWhoIsJack(frameGame, pioche);
 
         JLabel eachRound = new JLabel("En fin de tour : ");
 
@@ -68,15 +69,15 @@ public class ToolBar{
             }
         });
     }
-    public void initialiseWhoIsJack(FrameGame frameGame){
+    public void initialiseWhoIsJack(FrameGame frameGame, Pioche pioche){
         whoIsJack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Pioche pioche = new Pioche();
+                TraitementIcon tIcon = new TraitementIcon();
                 pioche.initialisePioche();
                 Alibi Jack = pioche.draw1Carte();
                 System.out.println(Jack.getName());
-                //toolBar.remove(oneUse);
+                JOptionPane.showMessageDialog(null,null,"Mr. Jack is",JOptionPane.INFORMATION_MESSAGE,tIcon.changeSize("image/alibis/" + Jack.getName() + ".png",200,300));
                 toolBar.remove(whoIsJack);
                 frameGame.updateFrame();
             }

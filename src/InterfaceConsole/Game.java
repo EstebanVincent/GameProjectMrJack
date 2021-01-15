@@ -41,11 +41,12 @@ public class Game {
         PanelBoard panelBoard = new PanelBoard();
         action.initialiseJetons();
         PanelActions panelActions = new PanelActions(action.getJetons());
+        LabelNaming labelNaming = new LabelNaming();
 
 
-        initialise(frameGame, toolBar, panelBoard, panelActions, labelStart);
+        initialise(frameGame, toolBar, panelBoard, panelActions, labelStart, pioche,labelNaming);
 
-
+        //frameGame.getFrame().add(labelNaming.getBackground());
         frameGame.getFrame().add(labelStart.getGarde());
         frameGame.displayFrameGame();
         panelBoard.printBoard(); //juste pour vérif
@@ -150,11 +151,12 @@ public class Game {
 
     JFrame frame = new JFrame("Mr Jack Pocket");
 
-    public void initialise(FrameGame frameGame,ToolBar toolBar, PanelBoard panelBoard, PanelActions panelActions, LabelStart labelStart){
-        toolBar.initialiseToolBar(frameGame);
+    public void initialise(FrameGame frameGame,ToolBar toolBar, PanelBoard panelBoard, PanelActions panelActions, LabelStart labelStart, Pioche pioche,LabelNaming labelNaming){
+        toolBar.initialiseToolBar(frameGame, pioche);
         panelBoard.initialisePanelBoard();
         panelActions.initialisePanelActions(frameGame, panelBoard);
         labelStart.initialiseGarde(frameGame, toolBar, panelBoard, panelActions);
+        labelNaming.setUp(frameGame);
     }
     /*
     public void printBoardGraph() {

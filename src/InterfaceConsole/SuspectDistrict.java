@@ -114,7 +114,7 @@ public class SuspectDistrict extends District{
                     sortie = Arrays.copyOf(sortie, sortie.length + 1); //append en python
                     sortie[sortie.length - 1] = observé.getNom(); //On rajoute le nom du personnage dans la case car il est visible
                     i += 1;
-                }//si face vide
+                }//si face vide&
                 i += 1;
             }
         } while(!visionBloque && i != 4); //cas i si on peut voir a travers le plateau complet afin que la boucle s'arete

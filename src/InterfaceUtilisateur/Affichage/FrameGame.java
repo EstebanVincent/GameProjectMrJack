@@ -25,6 +25,4 @@ public class FrameGame{
         frame.setLocationRelativeTo(null);
         SwingUtilities.updateComponentTreeUI(frame);
     }
-
-
 }
