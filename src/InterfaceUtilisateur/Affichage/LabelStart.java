@@ -32,12 +32,12 @@ public class LabelStart{
     TraitementIcon tIcon = new TraitementIcon();
 
     //Méthodes
-    public void initialiseGarde(FrameGame frameGame,ToolBar bar, PanelBoard panelBoard, PanelActions panelActions){
+    public void initialiseGarde(FrameGame frameGame, LabelNaming labelNaming){
         setGarde(new JLabel(tIcon.changeSize("image/garde_4x.png", 700, 700)));
 
         garde.setLayout(new GridBagLayout());
 
-        initialiseButtonStart(frameGame, bar, panelBoard, panelActions);
+        initialiseButtonStart(frameGame, labelNaming);
 
         initialiseFleche();
 
@@ -45,7 +45,7 @@ public class LabelStart{
         garde.add(start, new GridBagConstraints());
     }
 
-    public void initialiseButtonStart(FrameGame frameGame,ToolBar bar, PanelBoard panelBoard, PanelActions panelActions){
+    public void initialiseButtonStart(FrameGame frameGame,LabelNaming labelNaming){
         setStart(new JButton("Start Game"));
         start.setPreferredSize(new Dimension(550, 100));
         start.setFont(start.getFont().deriveFont(100f));
@@ -55,11 +55,10 @@ public class LabelStart{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frameGame.getFrame().remove(garde);
-                frameGame.getFrame().add(bar.getToolBar(), BorderLayout.NORTH);
-                frameGame.getFrame().add(panelBoard.getPanelBoard(), BorderLayout.CENTER);
-                frameGame.getFrame().add(panelActions.getPanelActions(), BorderLayout.EAST);
-                //frameGame.getFrame().add(tourDeJeu,BorderLayout.WEST);
-                frameGame.updateFrame();
+                frameGame.getFrame().add(labelNaming.getBackground());
+                frameGame.getFrame().setSize(540, 540);
+                frameGame.getFrame().setLocationRelativeTo(null);
+                SwingUtilities.updateComponentTreeUI(frameGame.getFrame());
             }
         });
         start.addMouseListener(new MouseAdapter() {

@@ -82,17 +82,26 @@ public class LabelNaming {
         this.wD = wD;
     }
 
-    public void setUp(FrameGame frameGame) {
+    public void setUp(FrameGame frameGame,ToolBar bar, PanelBoard panelBoard, PanelActions panelActions) {
 
-        frameGame.getFrame().setSize(540, 540);
+        //frameGame.getFrame().setSize(540, 540);
         background.setLayout(null);
-
 
         final Font font = start.getFont().deriveFont(40f);
 
         start.setBounds(150, 400, 200, 50);
         start.setFont(font);
-
+        start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameGame.getFrame().remove(background);
+                frameGame.getFrame().add(bar.getToolBar(), BorderLayout.NORTH);
+                frameGame.getFrame().add(panelBoard.getPanelBoard(), BorderLayout.CENTER);
+                frameGame.getFrame().add(panelActions.getPanelActions(), BorderLayout.EAST);
+                //frameGame.getFrame().add(tourDeJeu,BorderLayout.WEST);
+                frameGame.updateFrame();
+            }
+        });
 
         jack.setBounds(10, 100, 500, 50);
         jack.setFont(font);

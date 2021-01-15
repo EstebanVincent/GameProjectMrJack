@@ -155,8 +155,8 @@ public class Game {
         toolBar.initialiseToolBar(frameGame, pioche);
         panelBoard.initialisePanelBoard();
         panelActions.initialisePanelActions(frameGame, panelBoard);
-        labelStart.initialiseGarde(frameGame, toolBar, panelBoard, panelActions);
-        labelNaming.setUp(frameGame);
+        labelStart.initialiseGarde(frameGame, labelNaming);
+        labelNaming.setUp(frameGame,toolBar,panelBoard,panelActions);
     }
     /*
     public void printBoardGraph() {
