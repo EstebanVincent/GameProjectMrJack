@@ -40,8 +40,9 @@ public class PanelActions extends Action{
 
     private final JButton[][] actions = new JButton[][]{{action1recto, action1verso}, {action2recto, action2verso}, {action3recto, action3verso}, {action4recto, action4verso}};
 
-    private JLabel turnJ = new JLabel(" Turn of Mr. Jack");
-    private JLabel turnD = new JLabel(" Turn of Detective");
+    private LabelNaming labelNaming = new LabelNaming(); //nan je veux conserrver les valeurs de l'autre pas en crée une nouvelle instance
+    private JLabel turnJ = new JLabel();
+    private JLabel turnD = new JLabel();
 
     //Getters and Setters
     public JPanel getPanelActions() { return panelActions; }
@@ -49,9 +50,20 @@ public class PanelActions extends Action{
     public void setPanelActions(JPanel panelActions) { this.panelActions = panelActions; }
 
     //Méthodes
-    public void initialisePanelActions(FrameGame frameGame, PanelBoard panelBoard){
-        turnJ.setFont(new Font("Serif", Font.PLAIN, 25));
-        turnD.setFont(new Font("Serif", Font.PLAIN, 25));
+    public void initialisePanelActions(FrameGame frameGame, PanelBoard panelBoard,LabelNaming labelNaming){
+        turnD.setText(labelNaming.getDetective().getName() + "'s turn");
+        turnD.setFont(new Font("Serif", Font.PLAIN, 35));
+        turnD.setForeground(Color.BLUE);
+        turnD.setVerticalTextPosition(JLabel.CENTER);
+        turnD.setHorizontalTextPosition(JLabel.CENTER);
+
+        turnJ.setText(labelNaming.getJack().getName() + "'s turn");
+        turnJ.setFont(new Font("Serif", Font.PLAIN, 35));
+        turnJ.setForeground(Color.RED);
+        turnJ.setVerticalTextPosition(JLabel.CENTER);
+        turnJ.setHorizontalTextPosition(JLabel.CENTER);
+
+
         panelActions.setLayout(new GridLayout(5,1));
         panelActions.add(turnD);
 
@@ -77,6 +89,7 @@ public class PanelActions extends Action{
         action1recto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 frameGame.updateFrame();
             }
         });

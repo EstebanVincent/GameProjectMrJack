@@ -44,12 +44,12 @@ public class Game {
         LabelNaming labelNaming = new LabelNaming();
 
 
-        initialise(frameGame, toolBar, panelBoard, panelActions, labelStart, pioche,labelNaming);
+        initialise(frameGame, toolBar, panelBoard, panelActions, labelStart, pioche, labelNaming);
 
         //frameGame.getFrame().add(labelNaming.getBackground());
         frameGame.getFrame().add(labelStart.getGarde());
         frameGame.displayFrameGame();
-        panelBoard.printBoard(); //juste pour vérif
+        //panelBoard.printBoard(); //juste pour vérif
 
 
         //printBoard();
@@ -154,7 +154,7 @@ public class Game {
     public void initialise(FrameGame frameGame,ToolBar toolBar, PanelBoard panelBoard, PanelActions panelActions, LabelStart labelStart, Pioche pioche,LabelNaming labelNaming){
         toolBar.initialiseToolBar(frameGame, pioche);
         panelBoard.initialisePanelBoard();
-        panelActions.initialisePanelActions(frameGame, panelBoard);
+        //panelActions.initialisePanelActions(frameGame, panelBoard, labelNaming);
         labelStart.initialiseGarde(frameGame, labelNaming);
         labelNaming.setUp(frameGame,toolBar,panelBoard,panelActions);
     }

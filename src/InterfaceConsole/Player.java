@@ -3,6 +3,8 @@ package InterfaceConsole;
 public class Player {
     //Attributs
     private String name;
+    private int role; //0 detective, 1 jack
+
     private Player[] players;
 
     //Constructeurs
@@ -20,15 +22,25 @@ public class Player {
         this.name = name;
     }
 
+    public int getRole() { return role; }
+
+    public void setRole(int role) { this.role = role; }
+
     public Player[] getPlayers(){return players;}
 
     public void setPlayers(Player[] players) { this.players = players; }
 
+
+    public Player(String name, int role) {
+        this.name = name;
+        this.role = role;
+    }
+
     //Méthodes
     public void initialiseName(){ //initialise les players
-        Player jack = new Player("Mr. Jack");
-        Player enqueteur = new Player("Enqueteur");
-        setPlayers(new Player[]{jack, enqueteur});
+        Player jack = new Player("Jack");
+        Player detective = new Player("Detective");
+        setPlayers(new Player[]{jack, detective});
     }
 
 
