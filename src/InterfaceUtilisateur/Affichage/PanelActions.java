@@ -106,7 +106,9 @@ public class PanelActions extends Action{
         action3recto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //panelBoard.getPanelBoard().get
                 panelBoard.getPanelBoard().remove(5);
+
                 frameGame.updateFrame();
             }
         });

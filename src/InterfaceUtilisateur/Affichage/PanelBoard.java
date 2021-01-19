@@ -16,6 +16,7 @@ public class PanelBoard{
     private District[][] board = new District[5][5];
     private JLabel[][] labelArrayBoard = new JLabel[5][5];
     private JPanel panelBoard = new JPanel();
+    public JPanel test = new JPanel();
 
     //Getters and Setters
     public District[][] getBoard() { return board; }
@@ -126,6 +127,11 @@ public class PanelBoard{
                 }
             }
         }
+        test.setPreferredSize(new Dimension(1000,1000));
+        test.setLayout(null);
+        test.setBackground(Color.BLACK);
+        labelArrayBoard[2][2].setBounds(200, 200, 160,160);
+        test.add(labelArrayBoard[2][2]);
     }
     public void printBoard(){// faire un truc graphique
         for (int i = 0; i < 5; i++) {
@@ -146,5 +152,14 @@ public class PanelBoard{
             }
         }
         return defaut;
+    }
+    public void t(){
+        test.setPreferredSize(new Dimension(1000,1000));
+        test.setLayout(null);
+        test.setBackground(Color.BLACK);
+        labelArrayBoard[2][2].setBounds(200, 200, 160,160);
+        test.add(labelArrayBoard[2][2]);
+
+
     }
 }
