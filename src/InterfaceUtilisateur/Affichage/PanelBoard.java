@@ -6,10 +6,8 @@ import InterfaceUtilisateur.TraitementIcon;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 
 public class PanelBoard{
     //Attributs
@@ -17,6 +15,7 @@ public class PanelBoard{
     private JLabel[][] labelArrayBoard = new JLabel[5][5];
     private JPanel panelBoard = new JPanel();
     public JPanel test = new JPanel();
+    private List<Images> districts = new ArrayList<Images>(9);
 
     //Getters and Setters
     public District[][] getBoard() { return board; }
@@ -36,6 +35,27 @@ public class PanelBoard{
     TraitementIcon tIcon = new TraitementIcon();
 
     //Méthodes
+    public void initialiseD(){
+        districts.add(Images.Madame);
+        districts.add(Images.SGT_Goodley);
+        districts.add(Images.Jeremy_Bert);
+        districts.add(Images.William_Gull);
+        districts.add(Images.Miss_Stealthy);
+        districts.add(Images.John_Smith);
+        districts.add(Images.Insp_Lestrade);
+        districts.add(Images.Insp_Lestrade);
+        districts.add(Images.John_Pizer);
+        districts.add(Images.Joseph_Lane);
+        Collections.shuffle(districts);
+    }
+    public void test(){
+        test.setPreferredSize(new Dimension(1000,1000));
+        test.setLayout(null);
+        test.setBackground(Color.BLACK);
+        labelArrayBoard[2][2].setBounds(200, 200, 160,160);
+        test.add(labelArrayBoard[2][2]);
+
+    }
     public void initialisePanelBoard(){
         district.setUp();
 
@@ -95,6 +115,7 @@ public class PanelBoard{
     }
 
     public void setUpPanelBoard(){
+        /*
         panelBoard.setLayout(new GridLayout(5,5));
         panelBoard.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         for (int i = 0; i < labelArrayBoard.length; i++){
@@ -127,6 +148,8 @@ public class PanelBoard{
                 }
             }
         }
+
+         */
         test.setPreferredSize(new Dimension(1000,1000));
         test.setLayout(null);
         test.setBackground(Color.BLACK);

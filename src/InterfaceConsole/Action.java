@@ -1,5 +1,6 @@
 package InterfaceConsole;
 
+import InterfaceUtilisateur.Affichage.Images;
 import InterfaceUtilisateur.Affichage.PanelBoard;
 import InterfaceUtilisateur.TraitementIcon;
 
@@ -105,7 +106,6 @@ public class Action {
         Action jeton2 = new Action("toby", tIcon.changeSize("image/actions/2recto.png",160,160), "watson",tIcon.changeSize("image/actions/2verso.png",160,160));
         Action jeton3 = new Action("rotation1",tIcon.changeSize("image/actions/3recto.png",160,160), "échange",tIcon.changeSize("image/actions/3verso.png",160,160));
         Action jeton4 = new Action("rotation2",tIcon.changeSize("image/actions/4recto.png",160,160), "joker",tIcon.changeSize("image/actions/4verso.png",160,160));
-
         setJetons(new Action[]{jeton1, jeton2, jeton3, jeton4});
     }
 

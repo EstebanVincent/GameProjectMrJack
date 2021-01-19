@@ -18,7 +18,6 @@ public class PanelActions extends Action{
         super(jetons);
     }
     //Nouvelles instances de classes
-    TraitementIcon tIcon = new TraitementIcon();
     Random rd = new Random();
     //Action action = new Action();
 
@@ -26,21 +25,21 @@ public class PanelActions extends Action{
     private List<Integer> actionsRd = new ArrayList<Integer>();
     private JPanel panelActions = new JPanel();
 
-    private JButton action1recto = new JButton(getJetons()[0].getImgRecto());
-    private JButton action1verso = new JButton(getJetons()[0].getImgVerso());
+    private JButton action1recto = new JButton(Images.Action1.getRecto());
+    private JButton action1verso = new JButton(Images.Action1.getVerso());
 
-    private JButton action2recto = new JButton(getJetons()[1].getImgRecto());
-    private JButton action2verso = new JButton(getJetons()[1].getImgVerso());
+    private JButton action2recto = new JButton(Images.Action2.getRecto());
+    private JButton action2verso = new JButton(Images.Action2.getVerso());
 
-    private JButton action3recto = new JButton(getJetons()[2].getImgRecto());
-    private JButton action3verso = new JButton(getJetons()[2].getImgVerso());
+    private JButton action3recto = new JButton(Images.Action3.getRecto());
+    private JButton action3verso = new JButton(Images.Action3.getVerso());
 
-    private JButton action4recto = new JButton(getJetons()[3].getImgRecto());
-    private JButton action4verso = new JButton(getJetons()[3].getImgVerso());
+    private JButton action4recto = new JButton(Images.Action4.getRecto());
+    private JButton action4verso = new JButton(Images.Action4.getVerso());
 
     private final JButton[][] actions = new JButton[][]{{action1recto, action1verso}, {action2recto, action2verso}, {action3recto, action3verso}, {action4recto, action4verso}};
 
-    private LabelNaming labelNaming = new LabelNaming(); //nan je veux conserrver les valeurs de l'autre pas en crée une nouvelle instance
+    private LabelNaming labelNaming = new LabelNaming(); //nan je veux conserver les valeurs de l'autre pas en crée une nouvelle instance
     private JLabel turnJ = new JLabel();
     private JLabel turnD = new JLabel();
 
@@ -85,11 +84,18 @@ public class PanelActions extends Action{
         panelActions.add(turnD,0);
     }
 
+    public void test(){ //donne les actions du tour d'après
+        for ( int i = 0; i < actionsRd.size(); i++){
+            panelActions.remove(actions[i][actionsRd.get(i)]);
+            panelActions.add(actions[i][(actionsRd.get(i)+1)%2],i+1);//index + 1 car le 0 dit c'est le tour de qui, le %2 permet de changer 1 en 0 en inversement
+        }
+    }
+
     public void initialiseAction1Recto(FrameGame frameGame){
         action1recto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                test();
                 frameGame.updateFrame();
             }
         });
