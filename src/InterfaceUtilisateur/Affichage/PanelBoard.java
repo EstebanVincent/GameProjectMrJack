@@ -48,14 +48,7 @@ public class PanelBoard{
         districts.add(Images.Joseph_Lane);
         Collections.shuffle(districts);
     }
-    public void test(){
-        test.setPreferredSize(new Dimension(1000,1000));
-        test.setLayout(null);
-        test.setBackground(Color.BLACK);
-        labelArrayBoard[2][2].setBounds(200, 200, 160,160);
-        test.add(labelArrayBoard[2][2]);
 
-    }
     public void initialisePanelBoard(){
         district.setUp();
 
@@ -115,7 +108,7 @@ public class PanelBoard{
     }
 
     public void setUpPanelBoard(){
-        /*
+
         panelBoard.setLayout(new GridLayout(5,5));
         panelBoard.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         for (int i = 0; i < labelArrayBoard.length; i++){
@@ -149,12 +142,13 @@ public class PanelBoard{
             }
         }
 
-         */
+         /*
         test.setPreferredSize(new Dimension(1000,1000));
         test.setLayout(null);
         test.setBackground(Color.BLACK);
         labelArrayBoard[2][2].setBounds(200, 200, 160,160);
         test.add(labelArrayBoard[2][2]);
+*/
     }
     public void printBoard(){// faire un truc graphique
         for (int i = 0; i < 5; i++) {
@@ -176,13 +170,5 @@ public class PanelBoard{
         }
         return defaut;
     }
-    public void t(){
-        test.setPreferredSize(new Dimension(1000,1000));
-        test.setLayout(null);
-        test.setBackground(Color.BLACK);
-        labelArrayBoard[2][2].setBounds(200, 200, 160,160);
-        test.add(labelArrayBoard[2][2]);
 
-
-    }
 }

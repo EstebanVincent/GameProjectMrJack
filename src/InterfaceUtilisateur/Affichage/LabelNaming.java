@@ -108,7 +108,7 @@ public class LabelNaming {
                 frameGame.getFrame().remove(background);
                 frameGame.getFrame().add(bar.getToolBar(), BorderLayout.NORTH);
                 //frameGame.getFrame().add(panelBoard.getPanelBoard(), BorderLayout.CENTER);
-                frameGame.getFrame().add(panelBoard.test, BorderLayout.CENTER);
+                frameGame.getFrame().add(panelBoard.getPanelBoard(), BorderLayout.CENTER);
                 frameGame.getFrame().add(panelActions.getPanelActions(), BorderLayout.EAST);
                 //frameGame.getFrame().add(tourDeJeu,BorderLayout.WEST);
                 frameGame.updateFrame();
